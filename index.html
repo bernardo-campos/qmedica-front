@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+
+
+  <style type="text/css">
+    body {
+      background-color: #FFFFFF;
+    }
+    .ui.menu .item img.logo {
+      margin-right: 1.5em;
+    }
+    .main.container {
+      margin-top: 7em;
+    }
+    </style>
+
+  <title>Semantic UI example</title>
+</head>
+<body>
+  <div class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+        <img class="logo" src="https://cdn4.iconfinder.com/data/icons/pretty-office-part-6-reflection-style/256/Status.png">
+        QMedica
+      </a>
+      <a href="#" class="item">Turnos</a>
+      <!-- <a href="#" class="item">Calendarios</a> -->
+      <!-- <a href="#" class="item">Pacientes</a> -->
+      <a href="login.html" class="item right floated">Cerrar sesión</a>
+    </div>
+  </div>
+
+  <div class="ui main text container">
+
+    <!-- Titulo y opciones -->
+    <h1 class="ui header">Turnos</h1>
+    <form class="ui form">
+      <div class="two fields">
+        <div class="field">
+          <label>Calendario</label>
+          <select class="ui dropdown" id="">
+            <option value="">Seleccionar</option>
+            <option value="1">Calendario 1</option>
+            <option value="2">Calendario 2</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Fecha</label>
+          <input type="date" name="" id="">
+        </div>
+      </div>
+    </form>
+
+    <!-- Listado de turnos -->
+    <div class="ui two column grid" style="margin-top:1em;">
+      <div class="row">
+        <div class="column">
+          <div class="ui list divided">
+            <h3>Mañana</h3>
+            <div class="item libre"><b>08:00</b> <a>LIBRE</a></div>
+            <div class="item"><b>08:15</b> LIBRE</div>
+            <div class="item"><b>08:30</b> Perez, Juan</div>
+            <div class="item"><b>08:45</b> Carabaja, Pedro</div>
+            <div class="item"><b>09:00</b> LIBRE</div>
+            <div class="item"><b>09:15</b> LIBRE</div>
+            <div class="item"><b>09:30</b> LIBRE</div>
+            <div class="item"><b>09:45</b> Amaya, Gimeno</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui list divided">
+            <h3>Tarde</h3>
+            <div class="item"><b>17:00</b> LIBRE</div>
+            <div class="item"><b>17:15</b> LIBRE</div>
+            <div class="item"><b>17:30</b> LIBRE</div>
+            <div class="item"><b>17:45</b> LIBRE</div>
+            <div class="item"><b>18:00</b> Unzaga, Lindor</div>
+            <div class="item"><b>18:15</b> Campestrini, Susano</div>
+            <div class="item"><b>18:30</b> LIBRE</div>
+            <div class="item"><b>18:45</b> LIBRE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Nuevo turno
+    </div>
+    <div class="content">
+      <form class="ui form">
+
+        <div class="three fields">
+          <div class="field">
+            <label>Calendario:</label>
+            <span>Abdala Ramiro</span>
+          </div>
+          <div class="field">
+            <label>Fecha</label>
+            <span>Jueves 25/05/2020</span>
+          </div>
+          <div class="field">
+            <label>Hora</label>
+            <span>15:20 hs</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>DNI del paciente</label>
+          <!-- <input type="text" name="dni" placeholder="DNI del paciente"> -->
+          <div class="ui action input">
+            <input type="text" name="dni" placeholder="DNI del paciente">
+            <button class="ui icon button green agregar-paciente">
+              <i class="plus icon"></i>
+            </button>
+          </div>
+        </div>
+        <div class="ui error message dni">
+          <i class="close icon"></i>
+          <div class="header">
+            ¡Paciente no encontrado!
+          </div>
+          Agregue uno nuevo, o busque por nombre
+        </div>
+
+        <div class="three fields fields-paciente" style="display:none">
+          <div class="field">
+            <label>Apellido</label>
+            <input type="text" placeholder="Apellido">
+          </div>
+          <div class="field">
+            <label>Nombre</label>
+            <input type="text" placeholder="Nombre">
+          </div>
+          <div class="field">
+            <label>Fecha de nacimiento</label>
+            <input type="date" placeholder="Fecha de nacimiento">
+          </div>
+        </div>
+        <div class="three fields fields-paciente" style="display:none">
+          <div class="field">
+            <label>Sexo</label>
+            <select class="ui dropdown" id="">
+              <option value="">Sexo</option>
+              <option value="1">Masculino</option>
+              <option value="2">Femenino</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Teléfono</label>
+            <input type="text" placeholder="Teléfono">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="two fields">
+          <div class="field">
+            <label>Obra social</label>
+            <input type="text" name="" placeholder="Obra social">
+          </div>
+          <div class="field">
+            <label>Nº Afiliación</label>
+            <input type="text" name="" placeholder="Nº Afiliación">
+          </div>
+        </div>
+
+        <div class="two fields">
+          <div class="field">
+            <label>Motivo</label>
+            <input type="text" name="" placeholder="Motivo">
+          </div>
+          <div class="field">
+            <label>Estadío</label>
+            <select class="ui dropdown">
+              <option value="" hidden>Estadío</option>
+              <option value="0">No Asistió</option>
+              <option value="1">En Sala</option>
+              <option value="2">En Consultorio</option>
+              <option value="3">Atendido</option>
+            </select>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive right labeled icon button">
+        Asignar turno
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $('select.dropdown')
+      .dropdown()
+    ;
+
+    myModal = $('.ui.modal')
+      .modal({
+        centered: false
+      })
+    ;
+
+  $('.libre a').click(function (event) {
+    event.preventDefault();
+    myModal.modal('show');
+  });
+
+  $('input[name="dni"]').keyup(function() {
+    let length = $(this).val().length;
+    if (length == 8) {
+      $('.message.dni').addClass('visible');
+      $(this).parents('.field').addClass('error');
+      $('.fields-paciente').hide();
+    }
+
+  });
+
+  $('.agregar-paciente').click(function(event) {
+    event.preventDefault();
+    $('.message.dni').removeClass('visible');
+    $('.fields-paciente').show(500);
+    $('input[name="dni"]').parents('.field').removeClass('error');
+  });
+
+  })
+</script>
+</body>
+</html>
