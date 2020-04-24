@@ -65,9 +65,13 @@
               ]
             }
           },
-          onSuccess: function() {
-            window.location = "/qmedica-front";
-            return false; // false is required if you do don't want to let it submit
+          onSuccess: function(event) {
+            event.preventDefault();
+            $('#tiene-cuenta, #spinner').toggleClass('hidden');
+            setTimeout(function(){
+              window.location = "/qmedica-front";
+              return false; // false is required if you do don't want to let it submit
+            }, 1500);
           }
         })
       ;
@@ -102,11 +106,21 @@
         <div class="ui fluid large teal submit button">Ingresar</div>
       </div>
 
+      <div class="ui icon message hidden" id="spinner">
+        <i class="notched circle loading icon"></i>
+        <div class="content">
+          <div class="header">
+            Espere un momento
+          </div>
+          <p>Estamos verificando sus datos...</p>
+        </div>
+      </div>
+
       <div class="ui error message"></div>
 
     </form>
 
-    <div class="ui message">
+    <div class="ui message" id="tiene-cuenta">
       ¿No tiene cuenta? <a href="register.html">Regístrese</a>
     </div>
   </div>

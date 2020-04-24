@@ -73,9 +73,13 @@
             }
 
           },
-          onSuccess: function() {
-            window.location = "login.html";
-            return false; // false is required if you do don't want to let it submit
+          onSuccess: function(event) {
+            event.preventDefault();
+            $('#tiene-cuenta, #spinner').toggleClass('hidden');
+            setTimeout(function(){
+              window.location = "login.html";
+              return false; // false is required if you do don't want to let it submit
+            }, 1500);
           }
         })
       ;
@@ -126,11 +130,21 @@
         <div class="ui fluid large teal submit button">Registrarse</div>
       </div>
 
+      <div class="ui icon message hidden" id="spinner">
+        <i class="notched circle loading icon"></i>
+        <div class="content">
+          <div class="header">
+            Espere un momento
+          </div>
+          <p>Estamos procesando sus datos...</p>
+        </div>
+      </div>
+
       <div class="ui error message"></div>
 
     </form>
 
-    <div class="ui message">
+    <div class="ui message" id="tiene-cuenta">
       ¿Ya tiene una cuenta? <a href="login.html">Ingrese</a>
     </div>
   </div>
