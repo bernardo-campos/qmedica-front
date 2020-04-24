@@ -119,29 +119,7 @@
           </div>
         </div>
 
-        <div class="field">
-          <label>DNI del paciente</label>
-          <!-- <input type="text" name="dni" placeholder="DNI del paciente"> -->
-          <div class="ui action input">
-            <!-- <input type="text" name="dni" placeholder="DNI del paciente"> -->
-            <div class="ui left icon input">
-              <input type="text" name="dni" placeholder="DNI del paciente">
-              <i class="search icon"></i>
-            </div>
-            <button class="ui icon button green agregar-paciente">
-              <i class="plus icon"></i>
-            </button>
-          </div>
-        </div>
-        <div class="ui error message dni">
-          <i class="close icon"></i>
-          <div class="header">
-            ¡Paciente no encontrado!
-          </div>
-          Agregue uno nuevo, o busque por nombre
-        </div>
-
-        <div class="three fields fields-paciente" style="display:none">
+        <div class="two fields fields-paciente">
           <div class="field">
             <label>Apellido</label>
             <input type="text" name="apellido" placeholder="Apellido">
@@ -150,28 +128,7 @@
             <label>Nombre</label>
             <input type="text" name="nombre" placeholder="Nombre">
           </div>
-          <div class="field">
-            <label>Fecha de nacimiento</label>
-            <input type="date" name="fecnac" placeholder="Fecha de nacimiento">
-          </div>
-        </div>
-        <div class="three fields fields-paciente" style="display:none">
-          <div class="field">
-            <label>Sexo</label>
-            <select class="ui dropdown" name="sexo" id="">
-              <option value="">Sexo</option>
-              <option value="1">Masculino</option>
-              <option value="2">Femenino</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Teléfono</label>
-            <input type="text" name="tel" placeholder="Teléfono">
-          </div>
-          <div class="field">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Email">
-          </div>
+
         </div>
 
         <div class="two fields">
@@ -234,42 +191,6 @@
   $('.libre a').click(function (event) {
     event.preventDefault();
     myModal.modal('show');
-  });
-
-  $('input[name="dni"]').keyup(function() {
-    let input = $(this);
-    let val = input.val();
-    if (val > 7000000) {
-      input.parents('.ui.icon.input').addClass('loading');
-      setTimeout(function(){
-        input.parents('.ui.icon.input').removeClass('loading');
-        if (val > 30000000) {
-          $('.message.dni').addClass('visible');
-          input.parents('.field').addClass('error');
-          $('.fields-paciente').hide();
-        } else {
-          $('input[name="apellido"]').val('Pérez García');
-          $('input[name="nombre"]').val('Juan C.');
-          $('input[name="fecnac"]').val('1970-11-23');
-          $('select[name="sexo"]').dropdown("set selected","1");
-          $('input[name="tel"]').val();
-          $('input[name="email"]').val('jcperezg01@gmail.com');
-          $('.fields-paciente').fadeIn(800);
-        }
-      }, 1000);
-    } else {
-      $('.message.dni').removeClass('visible');
-      input.parents('.field').removeClass('error');
-      $('.fields-paciente').hide();
-    }
-
-  });
-
-  $('.agregar-paciente').click(function(event) {
-    event.preventDefault();
-    $('.message.dni').removeClass('visible');
-    $('.fields-paciente').fadeIn(800);
-    $('input[name="dni"]').parents('.field').removeClass('error');
   });
 
   })
