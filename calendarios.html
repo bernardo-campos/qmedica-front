@@ -24,12 +24,30 @@
       margin-top: 7em;
     }
 
-    /* List */
-    .item > .ui.buttons {
+    /* Heading */
+    .titulo {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    /* LIST */
+    .ui.celled.list .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 2.5em;
+    }
+    .ui.list>.item:after {
       display: none;
     }
-    .item:hover > .ui.buttons {
-      display: inline-flex;
+    .circular.icon.button {
+      color: black!important;
+      border: 1px solid rgba(34,36,38,.15);
+      box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    }
+    .m-0-auto {
+      margin: 0 auto;
     }
     </style>
 
@@ -52,61 +70,140 @@
   <div class="ui main text container">
 
     <!-- Titulo -->
-    <h1 class="ui header">Calendarios</h1>
+    <div class="titulo">
+      <h1 class="ui header">Calendarios</h1>
+      <button class="circular ui positive basic icon button" onclick="showAddCalendar()">
+        <i class="icon plus"></i>
+      </button>
+    </div>
 
     <!-- Listado de turnos -->
     <div class="ui celled list">
       <div class="item">
-        <div class="ui buttons right floated content">
-          <button class="ui button">Nombre</button>
-          <button class="ui button">Horarios</button>
-          <button class="ui button">Compartir</button>
-        </div>
         <div class="content">
-          <div class="header">Calendario 01</div>
-            Propietario
+          <div class="header">Nombre calendario 01</div>
+        </div>
+        <a href="calendario.html" class="circular ui basic icon button">
+          <i class="pencil alternate icon"></i>
+        </a>
+      </div>
+      <div class="item">
+        <div class="content">
+          <div class="header">Nombre calendario 02</div>
+        </div>
+        <a href="calendario.html" class="circular ui basic icon button">
+          <i class="pencil alternate icon"></i>
+        </a>
+      </div>
+      <div class="item">
+        <div class="content">
+          <div class="header">Nombre calendario 03</div>
+        </div>
+        <a href="calendario.html" class="circular ui basic icon button">
+          <i class="pencil alternate icon"></i>
+        </a>
+      </div>
+      <div class="item">
+        <div class="content">
+          <div class="header">
+            <a href="calendario.html">
+            Nombre calendario 04
+            </a>
+          </div>
         </div>
       </div>
       <div class="item">
-        <div class="ui buttons right floated content">
-          <button class="ui button">Nombre</button>
-          <button class="ui button">Horarios</button>
-          <button class="ui button">Compartir</button>
-        </div>
         <div class="content">
-          <div class="header">Calendario 02</div>
-            Propietario
-        </div>
-      </div>
-      <div class="item">
-        <div class="ui buttons right floated content">
-          <button class="ui button">Nombre</button>
-          <button class="ui button">Horarios</button>
-          <button class="ui button">Compartir</button>
-        </div>
-        <div class="content">
-          <div class="header">Calendario 03</div>
-            Invitado
-        </div>
-      </div>
-      <div class="item">
-        <div class="ui buttons right floated content">
-          <button class="ui button">Nombre</button>
-          <button class="ui button">Horarios</button>
-          <button class="ui button">Compartir</button>
-        </div>
-        <div class="content">
-          <div class="header">Calendario 04</div>
-            Propietario
+          <div class="header">
+            <a href="calendario.html">
+            Nombre calendario 05
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
+  <!-- .container -->
+
+  <form class="ui tiny modal">
+    <div class="header">Nuevo calendario</div>
+    <div class="content">
+      <div class="ui left icon input fluid">
+        <input type="text" name="CalendarioNombre" id="CalendarioNombre" placeholder="Nombre del calendario">
+        <i class="calendar alternate outline icon"></i>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button" class="ui button">Cancelar</button>
+      <button type="submit" class="ui positive button">Crear</button>
+    </div>
+  </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script type="text/javascript">
+
+  function showAddCalendar() {
+    $('.tiny.modal')
+      .modal({
+        centered: true
+      })
+      .modal('show')
+    ;
+  }
+
+  $('form').submit(function(event) {
+    event.preventDefault();
+
+    let list = $('.ui.celled.list');
+    let CalendarioNombre = $('#CalendarioNombre').val();
+
+    $(this).trigger('reset');
+    
+    let exito = Math.random() < 0.5;
+    let time = 1000 + Math.floor(Math.random()*3000);
+
+    let loader = $(`
+      <div class="item">
+        <div class="m-0-auto contenido">
+          <div class="ui active centered inline loader"></div>
+          <p>Cargando...</p>
+        </div>
+      </div>`);
+    list.append(loader);
+
+    console.log({time: time, CalendarioNombre: CalendarioNombre, success: exito});
+    setTimeout(function () {
+      if (exito) {
+        let itemContent = `
+          <div class="content">
+            <div class="header">
+              <a href="calendario.html">${CalendarioNombre}</a>
+            </div>
+          </div>`
+        loader.html(itemContent);
+      }
+      else {
+        itemError = `
+          <div class="ui negative message" style="width: 100%;">
+            <i class="close icon"></i>
+            <div class="header">Ha ocurrido un error</div>
+            <p>No se pudo agregar el calendario "${CalendarioNombre}". Por favor, inténtelo más tarde</p>
+        </div>`;
+        loader.html(itemError);
+      }
+    }, time);
+  });
+  /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< $('form').submit() */
+
+ /* Cerrar mensajes de error */
+  $(document).on('click', '.message .close', function() {
+    $(this)
+      .closest('.item')
+      .fadeOut(300, function() {$(this).remove(); });
+  });
+
 
   $(document).ready(function(){
     $('select.dropdown')
