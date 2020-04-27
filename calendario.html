@@ -51,130 +51,142 @@
     </div>
   </div>
 
-  <div class="ui main text container">
-
-    <!-- Titulo -->
-    <div class="titulo">
-      <h1 class="ui header">Mi calendario 01</h1>
-    </div>
+  <form class="ui form main container">
 
     <!-- Editar Nombre -->
-    <h3 class="ui header">Nombre:</h3>
-    <div class="ui input">
-      <input type="text" name="CalendarioNombre" id="" placeholder="Nombre del calendario" value="Mi calendario 01">
+    <div class="field">
+      <label>Calendario:</label>
+      <div class="ui action input fluid">
+        <input type="text" name="CalendarioNombre" id="" placeholder="Nombre del calendario" value="Mi calendario 01">
+        <button id="eliminarCalendario" type="button" class="ui icon button">
+          <i class="trash alternate outline icon"></i>
+        </button>
+      </div>
     </div>
-
-    <div class="ui section divider"></div>
 
     <!-- Horarios -->
-    <h3 class="ui header">Horarios:</h3>
-    <div class="ui styled accordion">
+    <div class="field">
+      <label>Horarios</label>
+      <div class="ui styled accordion">
 
-      <div class="title active">
-        <i class="dropdown icon"></i>
-        Lunes
-      </div>
-      <div class="content active">
-        <table class="ui definition table form">
-          <thead>
-            <tr><th></th>
-            <th width="23%">Desde</th>
-            <th width="23%">Cant. turnos</th>
-            <th width="23%">Duración</th>
-          </tr></thead>
-          <tbody>
-            <tr>
-              <td>Mañana</td>
-              <td>
-                <div class="ui mini input fluid">
+        <div id="primerElemento" class="title">
+          <i class="dropdown icon"></i>
+          Lunes
+        </div>
+        <div class="content">
+          <div class="ui grid">
+            <div class="four wide column right aligned">
+              <div class="field">
+                <label></label>
+                <h5>
+                  Mañana
+                </h5>
+              </div>
+            </div>
+            <div class="twelve wide column">
+              <div class="fields">
+                <div class="five wide field">
+                  <label>Desde</label>
                   <input type="number" type="number" min="0" max="13" step="0.01" class="hora" value="9.00">
                 </div>
-              </td>
-              <td>
-                <div class="ui mini input">
+                <div class="five wide field">
+                  <label>Cant. Turnos</label>
                   <input type="number" type="number" min="0" step="1">
                 </div>
-              </td>
-              <td>
-                <div class="ui mini input right labeled fluid">
-                  <input type="number" type="number" min="1" step="1">
-                  <div class="ui basic label">min</div>
+                <div class="six wide field">
+                  <label>Duración</label>
+                  <div class="ui input right labeled fluid">
+                    <input type="number" type="number" min="1" max="60" step="1">
+                    <div class="ui basic label">min</div>
+                  </div>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Tarde</td>
-              <td>
-                <div class="ui mini input fluid">
-                  <input type="number" type="number" min="12" max="23" step="0.01" class="hora" value="17.00">
+              </div>
+            </div>
+
+            <div class="four wide column right aligned">
+              <div class="field">
+                <label></label>
+                <h5>
+                  Tarde
+                </h5>
+              </div>
+            </div>
+            <div class="twelve wide column">
+              <div class="fields">
+                <div class="five wide field">
+                  <label>Desde</label>
+                  <input type="number" type="number" min="0" max="13" step="0.01" class="hora" value="9.00">
                 </div>
-              </td>
-              <td>
-                <div class="ui mini input">
+                <div class="five wide field">
+                  <label>Cant. Turnos</label>
                   <input type="number" type="number" min="0" step="1">
                 </div>
-              </td>
-              <td>
-                <div class="ui mini input right labeled fluid">
-                  <input type="number" type="number" min="1" step="1">
-                  <div class="ui basic label">min</div>
+                <div class="six wide field">
+                  <label>Duración</label>
+                  <div class="ui input right labeled fluid">
+                    <input type="number" type="number" min="1" max="60" step="1">
+                    <div class="ui basic label">min</div>
+                  </div>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              </div>
+            </div>
 
-      <div class="title">
-        <i class="dropdown icon"></i>
-        Martes
-      </div>
-      <div class="content">
-        <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-      </div>
+          </div>
+        </div>
 
-      <div class="title">
-        <i class="dropdown icon"></i>
-        Miércoles
-      </div>
-      <div class="content">
-        <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-      </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Martes
+          </div>
+          <div class="content">
+            <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+          </div>
 
-      <div class="title">
-        <i class="dropdown icon"></i>
-        Jueves
-      </div>
-      <div class="content">
-        <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-      </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Miércoles
+          </div>
+          <div class="content">
+            <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+          </div>
 
-      <div class="title">
-        <i class="dropdown icon"></i>
-        Viernes
-      </div>
-      <div class="content">
-        <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-      </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Jueves
+          </div>
+          <div class="content">
+            <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+          </div>
 
-      <div class="title">
-        <i class="dropdown icon"></i>
-        Sábado
-      </div>
-      <div class="content">
-        <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-      </div>
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Viernes
+          </div>
+          <div class="content">
+            <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+          </div>
+
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Sábado
+          </div>
+          <div class="content">
+            <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+          </div>
+        </div>
+        <!-- .accordion -->
     </div>
-    <!-- .accordion -->
 
-    <div class="ui section divider"></div>
 
     <!-- Compartir -->
     <h3 class="ui header">Compartir con:</h3>
     <div class="ui middle aligned divided list">
+
       <div class="item">
         <div class="right floated content">
-          <button type="button" class="ui red basic button ">Dejar de compartir</button>
+          <button type="button" class="ui icon button">
+            <i class="trash alternate outline icon"></i>
+          </button>
         </div>
         <div class="right floated content opciones-usuario">
           <div class="ui toggle checkbox">
@@ -186,16 +198,21 @@
             <label>Puede ver ficha médica</label>
           </div>
         </div>
-        <img class="ui avatar image" src="https://wa1.narvii.com/static/img/user-icon-placeholder.png">
+        <div class="image">
+          <i class="user icon"></i>
+        </div>
         <div class="content">
           <span>Lena</span>
           <br>
           <span class="email">Lena@gmail.com</span>
         </div>
       </div>
+
       <div class="item">
         <div class="right floated content">
-          <button type="button" class="ui red basic button ">Dejar de compartir</button>
+          <button type="button" class="ui icon button">
+            <i class="trash alternate outline icon"></i>
+          </button>
         </div>
         <div class="right floated content opciones-usuario">
           <div class="ui toggle checkbox">
@@ -207,16 +224,21 @@
             <label>Puede ver ficha médica</label>
           </div>
         </div>
-        <img class="ui avatar image" src="https://wa1.narvii.com/static/img/user-icon-placeholder.png">
+        <div class="image">
+          <i class="user icon"></i>
+        </div>
         <div class="content">
           <span>Lindsay</span>
           <br>
           <span class="email">Lindsay@gmail.com</span>
         </div>
       </div>
+
       <div class="item">
         <div class="right floated content">
-          <button type="button" class="ui red basic button ">Dejar de compartir</button>
+          <button type="button" class="ui icon button">
+            <i class="trash alternate outline icon"></i>
+          </button>
         </div>
         <div class="right floated content opciones-usuario">
           <div class="ui toggle checkbox">
@@ -228,16 +250,21 @@
             <label>Puede ver ficha médica</label>
           </div>
         </div>
-        <img class="ui avatar image" src="https://wa1.narvii.com/static/img/user-icon-placeholder.png">
+        <div class="image">
+          <i class="user icon"></i>
+        </div>
         <div class="content">
           <span>Mark</span>
           <br>
           <span class="email">Mark@gmail.com</span>
         </div>
       </div>
+
       <div class="item">
         <div class="right floated content">
-          <button type="button" class="ui red basic button ">Dejar de compartir</button>
+          <button type="button" class="ui icon button">
+            <i class="trash alternate outline icon"></i>
+          </button>
         </div>
         <div class="right floated content opciones-usuario">
           <div class="ui toggle checkbox">
@@ -249,7 +276,9 @@
             <label>Puede ver ficha médica</label>
           </div>
         </div>
-        <img class="ui avatar image" src="https://wa1.narvii.com/static/img/user-icon-placeholder.png">
+        <div class="image">
+          <i class="user icon"></i>
+        </div>
         <div class="content">
           <span>Molly</span>
           <br>
@@ -257,7 +286,6 @@
         </div>
       </div>
     </div>
-    <div class="ui section divider"></div>
 
 
     <div class="ui three column centered grid">
@@ -269,8 +297,27 @@
 
 
 
-  </div>
+  </form>
 
+  <div id="deleteModal" class="ui small basic modal">
+    <div class="ui icon header">
+      <i class="trash alternate icon"></i>
+      Eliminar calendario
+    </div>
+    <div class="content text aligned center">
+      <p>Esta acción no se podrá deshacer. ¿Está seguro que desea eliminar el calendario?</p>
+    </div>
+    <div class="actions">
+      <div class="ui red basic cancel inverted button">
+        <i class="remove icon"></i>
+        No
+      </div>
+      <div class="ui green ok inverted button">
+        <i class="checkmark icon"></i>
+        Si
+      </div>
+    </div>
+  </div>
 
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script type="text/javascript">
@@ -287,11 +334,16 @@
     $(this).val(parseFloat(val).toFixed(2));
   });
 
+  $('#eliminarCalendario').click(function() {
+    $('#deleteModal')
+      .modal('show')
+    ;
+  });
 
   $(document).ready(function(){
 
-    let copyThis = $('.title + .content.active').html();
-    $('.title + .content:not(.active)').html(copyThis);
+    let copyThis = $('#primerElemento + .content').html();
+    $('.title:not(#primerElemento) + .content').html(copyThis);
 
     $('select.dropdown')
       .dropdown()

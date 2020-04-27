@@ -83,7 +83,7 @@
         <div class="content">
           <div class="header">Nombre calendario 01</div>
         </div>
-        <a href="calendario.html" class="circular ui basic icon button">
+        <a href="calendario.html" class="ui basic icon button">
           <i class="pencil alternate icon"></i>
         </a>
       </div>
@@ -91,7 +91,7 @@
         <div class="content">
           <div class="header">Nombre calendario 02</div>
         </div>
-        <a href="calendario.html" class="circular ui basic icon button">
+        <a href="calendario.html" class="ui basic icon button">
           <i class="pencil alternate icon"></i>
         </a>
       </div>
@@ -99,27 +99,9 @@
         <div class="content">
           <div class="header">Nombre calendario 03</div>
         </div>
-        <a href="calendario.html" class="circular ui basic icon button">
+        <a href="calendario.html" class="ui basic icon button">
           <i class="pencil alternate icon"></i>
         </a>
-      </div>
-      <div class="item">
-        <div class="content">
-          <div class="header">
-            <a href="calendario.html">
-            Nombre calendario 04
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="content">
-          <div class="header">
-            <a href="calendario.html">
-            Nombre calendario 05
-            </a>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -160,7 +142,7 @@
     let CalendarioNombre = $('#CalendarioNombre').val();
 
     $(this).trigger('reset');
-    
+
     let exito = Math.random() < 0.5;
     let time = 1000 + Math.floor(Math.random()*3000);
 
@@ -178,10 +160,11 @@
       if (exito) {
         let itemContent = `
           <div class="content">
-            <div class="header">
-              <a href="calendario.html">${CalendarioNombre}</a>
-            </div>
-          </div>`
+            <div class="header">${CalendarioNombre}</div>
+          </div>
+          <a href="calendario.html" class="ui basic icon button">
+            <i class="pencil alternate icon"></i>
+          </a>`
         loader.html(itemContent);
       }
       else {
