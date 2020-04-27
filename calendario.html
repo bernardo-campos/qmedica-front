@@ -54,14 +54,17 @@
   <form class="ui form main container">
 
     <!-- Editar Nombre -->
-    <div class="field">
+    <div class="field" style="position:relative;">
       <label>Calendario:</label>
-      <div class="ui action input fluid">
+      <div class="ui input fluid">
         <input type="text" name="CalendarioNombre" id="" placeholder="Nombre del calendario" value="Mi calendario 01">
-        <button id="eliminarCalendario" type="button" class="ui icon button">
-          <i class="trash alternate outline icon"></i>
-        </button>
       </div>
+      <button id="eliminarCalendario" type="button" class="ui icon button" style="
+      position: absolute;
+      right: 0;
+      top: -25px;">
+        <i class="trash alternate outline icon"></i>
+      </button>
     </div>
 
     <!-- Horarios -->
@@ -179,8 +182,9 @@
 
 
     <!-- Compartir -->
-    <h3 class="ui header">Compartir con:</h3>
-    <div class="ui middle aligned divided list">
+    <div class="field">
+      <label>Compartir con:</label>
+      <div class="ui middle aligned divided list">
 
       <div class="item">
         <div class="right floated content">
@@ -285,6 +289,7 @@
           <span class="email">Molly@gmail.com</span>
         </div>
       </div>
+    </div>
     </div>
 
 
