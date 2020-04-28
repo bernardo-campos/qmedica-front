@@ -23,6 +23,37 @@
     .main.container {
       margin-top: 7em;
     }
+
+    .ui.segment {
+      display: flex;
+      justify-content: space-between;
+    }
+    .ui.segment.atendido {
+      background-color: #e5e5e5;
+    }
+    .ui.segment.consultorio {
+      background-color: #b3e9b3;
+    }
+    .ui.segment.sala {
+      background-color: #c5e5e9;
+    }
+    div.hora {
+      align-self: center;
+      font-size: 1.2em;
+    }
+    div.textos {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+    div.subtitulos {
+      display: flex;
+      justify-content: space-between;
+      color: gray;
+      font-size: small;
+    }
     </style>
 
   <title>Semantic UI example</title>
@@ -43,8 +74,7 @@
 
   <div class="ui main text container">
 
-    <!-- Titulo y opciones -->
-    <h1 class="ui header">Turnos</h1>
+    <!-- Opciones -->
     <form class="ui form">
       <div class="two fields">
         <div class="field">
@@ -63,38 +93,89 @@
     </form>
 
     <!-- Listado de turnos -->
-    <div class="ui two column grid" style="margin-top:1em;">
-      <div class="row">
-        <div class="column">
-          <div class="ui list divided">
-            <h3>Mañana</h3>
-            <div class="item libre"><b>08:00</b> <a>LIBRE</a></div>
-            <div class="item"><b>08:15</b> LIBRE</div>
-            <div class="item"><b>08:30</b> Perez, Juan</div>
-            <div class="item"><b>08:45</b> Gonzalez, Pedro</div>
-            <div class="item"><b>09:00</b> LIBRE</div>
-            <div class="item"><b>09:15</b> LIBRE</div>
-            <div class="item"><b>09:30</b> LIBRE</div>
-            <div class="item"><b>09:45</b> Garcia, Carlos</div>
+    <div class="ui two column stackable grid">
+
+      <!-- Mañana -->
+      <div class="column">
+        <h5>Mañana</h5>
+        <div id="mañana" class="ui segments">
+          <div id="copiar0" class="ui segment">
+            <div class="hora">
+              8:00
+            </div>
+            <div class="textos">
+              <span class="paciente">Nombre paciente</span>
+              <div class="subtitulos">
+                <span>Obra social</span>
+                <span>Motivo</span>
+              </div>
+            </div>
+            <div class="botones">
+              <div class="ui buttons">
+                <button class="ui icon button"><i class="user md icon"></i></button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="ui list divided">
-            <h3>Tarde</h3>
-            <div class="item"><b>17:00</b> LIBRE</div>
-            <div class="item"><b>17:15</b> LIBRE</div>
-            <div class="item"><b>17:30</b> LIBRE</div>
-            <div class="item"><b>17:45</b> LIBRE</div>
-            <div class="item"><b>18:00</b> Rodriguez, Adrián</div>
-            <div class="item"><b>18:15</b> LIBRE</div>
-            <div class="item"><b>18:30</b> Moreno, Juan carlos</div>
-            <div class="item"><b>18:45</b> LIBRE</div>
+          <div class="ui segment">
+            <div class="hora">
+              8:15
+            </div>
+            <div class="textos">
+              <a href="#" class="libre">Libre</a>
+            </div>
+            <div class="botones">
+              <div class="ui buttons">
+                <button class="ui icon button"><i class="edit icon"></i></button>
+                <button class="ui icon button"><i class="edit outline icon"></i></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Tarde -->
+      <div class="column">
+        <h5>Tarde</h5>
+        <div id="tarde" class="ui segments">
+          <div id="copiar1" class="ui segment">
+            <div class="hora">
+              16:00
+            </div>
+            <div class="textos">
+              <span class="paciente">Nombre paciente</span>
+              <div class="subtitulos">
+                <span>Obra social</span>
+                <span>Motivo</span>
+              </div>
+            </div>
+            <div class="botones">
+              <div class="ui buttons">
+                <button class="ui icon button"><i class="user md icon"></i></button>
+              </div>
+            </div>
+          </div>
+          <div id="copiar2" class="ui segment">
+            <div class="hora">
+              16:15
+            </div>
+            <div class="textos">
+              <a href="#" class="libre">Libre</a>
+            </div>
+            <div class="botones">
+              <div class="ui buttons">
+                <button class="ui icon button"><i class="edit icon"></i></button>
+                <button class="ui icon button"><i class="edit outline icon"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+    <!-- .listado de turnos (.grid) -->
 
   </div>
+  <!-- .container -->
 
   <div class="ui modal">
     <i class="close icon"></i>
@@ -178,6 +259,30 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
+
+    let horas_tarde = ['16:30', '16:45', '17:00', '17:15', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45'];
+    for (var i = 0; i < horas_tarde.length; i++) {
+      copiar = Math.random() > .5 ? "#copiar1" : "#copiar2";
+      segment = $(copiar).clone().find('.hora').html(horas_tarde[i]).parent(copiar).removeAttr('id');
+      $('#tarde').append(segment);
+    }
+
+    let horas_mañana = ['8:30', '8:45', '9:00', '9:15', '9:30', '9:45', '10:00', '10:15', '10:30', '10:45'];
+    for (var i = 0; i < horas_tarde.length; i++) {
+      segment = $("#copiar0").clone().find('.hora').html(horas_mañana[i]).parent("#copiar0").removeAttr('id');
+      $('#mañana').append(segment);
+    }
+
+    segmentos = $('#mañana .segment');
+    $(segmentos[0]).addClass('atendido');
+    $(segmentos[2]).addClass('atendido');
+
+    $(segmentos[4]).addClass('consultorio');
+    $(segmentos[5]).addClass('sala');
+    $(segmentos[6]).addClass('sala');
+    $(segmentos[8]).addClass('sala');
+
+
     $('select.dropdown')
       .dropdown()
     ;
@@ -188,10 +293,10 @@
       })
     ;
 
-  $('.libre a').click(function (event) {
-    event.preventDefault();
-    myModal.modal('show');
-  });
+    $('a.libre').click(function (event) {
+      event.preventDefault();
+      myModal.modal('show');
+    });
 
   })
 </script>
