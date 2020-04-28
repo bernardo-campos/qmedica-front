@@ -30,6 +30,42 @@
       flex-grow: 0!important;
     }
 
+
+
+    /* Botones a la derecha */
+    #opciones {
+      position: fixed;
+      right: 0;
+      top: 53px;
+    }
+    #controles {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+    }
+
+    /* ========= IMPRESION ========= */
+    @media print {
+      #opciones,
+      #controles,
+      .modal button.close,
+      .no-print {
+        display: none;
+      }
+      .printThis {
+          background-color: white;
+          height: 100%;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          margin: 0;
+          padding: 15px;
+          font-size: 14px;
+          line-height: 18px;
+      }
+    }
+
     </style>
 
   <title>Semantic UI example</title>
@@ -125,11 +161,51 @@
   </div>
   <!-- .container -->
 
+  <div id="opciones" class="ui vertical buttons">
+    <button class="ui button">Nota</button>
+    <button class="ui button">Ex</button>
+    <button class="ui button">Rp</button>
+    <button class="ui button">L</button>
+    <button class="ui button">Dx</button>
+    <button class="ui button">Cx</button>
+    <button class="ui button">Ant</button>
+    <button class="ui icon button"><i class="print icon"></i></button>
+    <!-- <button class="ui icon button attached"> -->
+      <!-- <div class="ui top attached menu"> -->
+        <!-- <div class="ui dropdown icon item">
+          <i class="print icon"></i>
+          <div class="menu">
+            <div class="item">
+              <button class="ui button">Pantalla actual</button>
+            </div>
+            <div class="item">
+              <button class="ui button">Rp</button>
+            </div>
+            <div class="item">
+              <button class="ui button">Lentes</button>
+            </div>
+          </div>
+        </div> -->
+      <!-- </div> -->
+    <!-- </button> -->
+
+
+
+  </div>
+
+  <div id="controles" class="ui vertical buttons">
+    <button class="ui button">Inicio</button>
+    <button class="ui icon button"><i class="angle up icon"></i></button>
+    <button class="ui icon button"><i class="angle down icon"></i></button>
+    <button class="ui button">Fin</button>
+  </div>
 
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script type="text/javascript">
 
   $(document).ready(function() {
+
+    $('.ui.dropdown').dropdown();
 
     for (var i = 0; i < 6; i++) {
       segment = $('#copiar0').clone().removeAttr('id');
