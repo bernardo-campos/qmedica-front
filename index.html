@@ -54,6 +54,17 @@
       color: gray;
       font-size: small;
     }
+
+    /* loader */
+    .ui.active.loader {
+      width: 100%;
+      height: 100%;
+      /* backdrop-filter: blur(2px); */
+    }
+    .ui.loader:before,
+    .ui.loader:after {
+      top: calc(50% - 1.14rem)!important;
+    }
     </style>
 
   <title>Semantic UI example</title>
@@ -100,6 +111,7 @@
         <h5>Mañana</h5>
         <div id="mañana" class="ui segments">
           <div id="copiar0" class="ui segment">
+            <div class="ui loader"></div>
             <div class="hora">
               8:00
             </div>
@@ -117,6 +129,7 @@
             </div>
           </div>
           <div class="ui segment">
+            <div class="ui loader"></div>
             <div class="hora">
               8:15
             </div>
@@ -125,8 +138,8 @@
             </div>
             <div class="botones">
               <div class="ui buttons">
-                <button class="ui icon button"><i class="edit icon"></i></button>
-                <button class="ui icon button"><i class="edit outline icon"></i></button>
+                <button class="ui icon button datosBasicos"><i class="edit icon"></i></button>
+                <button class="ui icon button datosCompletos"><i class="edit outline icon"></i></button>
               </div>
             </div>
           </div>
@@ -138,6 +151,7 @@
         <h5>Tarde</h5>
         <div id="tarde" class="ui segments">
           <div id="copiar1" class="ui segment">
+            <div class="ui loader"></div>
             <div class="hora">
               16:00
             </div>
@@ -155,6 +169,7 @@
             </div>
           </div>
           <div id="copiar2" class="ui segment">
+            <div class="ui loader"></div>
             <div class="hora">
               16:15
             </div>
@@ -163,8 +178,8 @@
             </div>
             <div class="botones">
               <div class="ui buttons">
-                <button class="ui icon button"><i class="edit icon"></i></button>
-                <button class="ui icon button"><i class="edit outline icon"></i></button>
+                <button class="ui icon button datosBasicos"><i class="edit icon"></i></button>
+                <button class="ui icon button datosCompletos"><i class="edit outline icon"></i></button>
               </div>
             </div>
           </div>
@@ -177,7 +192,7 @@
   </div>
   <!-- .container -->
 
-  <div class="ui modal">
+  <div id="nuevoTurno" class="ui modal">
     <i class="close icon"></i>
     <div class="header">
       Nuevo turno
@@ -254,6 +269,98 @@
     </div>
   </div>
 
+  <div id="datosBasicos" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Nuevo turno
+    </div>
+    <div class="content">
+      <form class="ui form">
+
+        <div class="field">
+          <label>Calendario:</label>
+          <span>Abdala Ramiro</span>
+        </div>
+        <div class="field">
+          <label>Apellido y nombre</label>
+          <input type="text" name="apellidoNombre" placeholder="Apellido y nombre">
+        </div>
+        <div class="field">
+          <label>Obra social</label>
+          <input type="text" name="" placeholder="Obra social">
+        </div>
+        <div class="field">
+          <label>Motivo</label>
+          <input type="text" name="" placeholder="Motivo">
+        </div>
+
+      </form>
+
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive right labeled icon button">
+        Asignar turno
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div id="datosCompletos" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Nuevo turno
+    </div>
+    <div class="content">
+      <form class="ui form">
+
+        <div class="field">
+          <label>Calendario:</label>
+          <span>Abdala Ramiro</span>
+        </div>
+        <div class="field">
+          <label>DNI</label>
+          <input type="number" name="dni" placeholder="DNI">
+        </div>
+        <div class="field">
+          <label>Sexo</label>
+          <select class="ui dropdown">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Apellido y nombre</label>
+          <input type="text" name="apellidoNombre" placeholder="Apellido y nombre">
+        </div>
+        <div class="field">
+          <label>Obra social</label>
+          <input type="text" name="" placeholder="Obra social">
+        </div>
+        <div class="field">
+          <label>Nº Afiliación</label>
+          <input type="text" name="" placeholder="Nº Afiliación">
+        </div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="estadioEnSala">
+          <label>Estadío: En sala</label>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive right labeled icon button">
+        Asignar turno
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
 
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script type="text/javascript">
@@ -287,7 +394,11 @@
       .dropdown()
     ;
 
-    myModal = $('.ui.modal')
+    $('.checkbox')
+      .checkbox()
+    ;
+
+    modalNuevoTurno = $('#nuevoTurno')
       .modal({
         centered: false
       })
@@ -295,10 +406,32 @@
 
     $('a.libre').click(function (event) {
       event.preventDefault();
-      myModal.modal('show');
+      modalNuevoTurno.modal('show');
     });
 
-  })
+
+    modalDatosBasicos = $('#datosBasicos')
+      .modal({
+        centered: false
+      })
+    ;
+
+    modalDatosCompletos = $('#datosCompletos')
+      .modal({
+        centered: false
+      })
+    ;
+
+  });
+
+  $(document).on('click', 'button.datosBasicos', function() {
+    modalDatosBasicos.modal('show');
+  });
+
+  $(document).on('click', 'button.datosCompletos', function() {
+    modalDatosCompletos.modal('show');
+  });
+
 </script>
 </body>
 </html>
