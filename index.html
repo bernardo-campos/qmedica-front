@@ -124,7 +124,7 @@
             </div>
             <div class="botones">
               <div class="ui buttons">
-                <button class="ui icon button"><i class="user md icon"></i></button>
+                <a href="ficha.html" class="ui icon button"><i class="file alternate outline icon"></i></a>
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@
               8:15
             </div>
             <div class="textos">
-              <a href="#" class="libre">Libre</a>
+              <!-- <a href="#" class="libre">Libre</a> -->
             </div>
             <div class="botones">
               <div class="ui buttons">
@@ -164,7 +164,7 @@
             </div>
             <div class="botones">
               <div class="ui buttons">
-                <button class="ui icon button"><i class="user md icon"></i></button>
+                <a href="ficha.html" class="ui icon button"><i class="file alternate outline icon"></i></a>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@
               16:15
             </div>
             <div class="textos">
-              <a href="#" class="libre">Libre</a>
+              <!-- <a href="#" class="libre">Libre</a> -->
             </div>
             <div class="botones">
               <div class="ui buttons">
@@ -192,7 +192,7 @@
   </div>
   <!-- .container -->
 
-  <div id="nuevoTurno" class="ui modal">
+  <!-- <div id="nuevoTurno" class="ui modal">
     <i class="close icon"></i>
     <div class="header">
       Nuevo turno
@@ -202,7 +202,7 @@
 
         <div class="three fields">
           <div class="field">
-            <label>Calendario:</label>
+            <label>Calendario</label>
             <span>Abdala Ramiro</span>
           </div>
           <div class="field">
@@ -267,7 +267,7 @@
         <i class="checkmark icon"></i>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div id="datosBasicos" class="ui modal">
     <i class="close icon"></i>
@@ -278,8 +278,10 @@
       <form class="ui form">
 
         <div class="field">
-          <label>Calendario:</label>
-          <span>Abdala Ramiro</span>
+          <label>Calendario</label>
+          <div>Abdala Ramiro</div>
+          <div>28/04/2020</div>
+          <div>17:00 hs</div>
         </div>
         <div class="field">
           <label>Apellido y nombre</label>
@@ -317,8 +319,10 @@
       <form class="ui form">
 
         <div class="field">
-          <label>Calendario:</label>
-          <span>Abdala Ramiro</span>
+          <label>Calendario</label>
+          <div>Abdala Ramiro</div>
+          <div>28/04/2020</div>
+          <div>17:00 hs</div>
         </div>
         <div class="field">
           <label>DNI</label>
@@ -345,7 +349,7 @@
         </div>
         <div class="ui checkbox">
           <input type="checkbox" name="estadioEnSala">
-          <label>Estadío: En sala</label>
+          <label>Paciente en sala</label>
         </div>
 
       </form>
@@ -398,16 +402,16 @@
       .checkbox()
     ;
 
-    modalNuevoTurno = $('#nuevoTurno')
-      .modal({
-        centered: false
-      })
-    ;
+    // modalNuevoTurno = $('#nuevoTurno')
+    //   .modal({
+    //     centered: false
+    //   })
+    // ;
 
-    $('a.libre').click(function (event) {
-      event.preventDefault();
-      modalNuevoTurno.modal('show');
-    });
+    // $('a.libre').click(function (event) {
+    //   event.preventDefault();
+    //   modalNuevoTurno.modal('show');
+    // });
 
 
     modalDatosBasicos = $('#datosBasicos')
