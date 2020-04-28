@@ -21,8 +21,15 @@
       margin-right: 1.5em;
     }
     .main.container {
-      margin-top: 7em;
+      margin-top: 5em;
     }
+
+    /* Consultas realizadas */
+    .tiempo {
+      flex-basis: 110px!important;
+      flex-grow: 0!important;
+    }
+
     </style>
 
   <title>Semantic UI example</title>
@@ -43,6 +50,76 @@
 
   <div class="ui main text container">
 
+    <!-- Datos Paciente -->
+    <div class="ui raised segment">
+      <div>Apellido y nombre - 99 años</div>
+      <div id="resumen">
+        <div id="antecedentes" class="antecedentes">
+          <span class="text-primary">Antecedentes:&nbsp;</span><span class="val">Aquí van los antecedentes del paciente...</span>
+        </div>
+        <div id="diagnosticos">
+          <span class="text-primary">Diagnósticos:&nbsp;</span><span class="val">Aquí va el último diagnóstico realizado</span>
+        </div>
+        <div id="ultimos-lentes">
+          <span class="text-primary">Últ. lentes:&nbsp;</span>
+          <span class="reverse L"><span class="val"></span> <span class="text-primary">L&nbsp;</span></span>
+          <span class="reverse C"><span class="val">+1.75/+1.75</span> <span class="text-primary">C&nbsp;</span></span>
+          <span class="reverse lenteObs"><span class="val"></span> <span class="text-primary">Obs:&nbsp;</span></span>
+        </div>
+        <div id="cirugias">
+          <span class="text-primary">Cirugias:&nbsp;</span><span class="val"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consultas realizadas -->
+    <div id="consultas" class="ui segments">
+      <div id="copiar0" class="ui horizontal segments consulta">
+        <div class="ui segment tiempo">
+          <div>22/11/2017</div>
+          <small>hace 2 años</small>
+        </div>
+        <div class="ui segment">
+
+            <div class="font-italic nota">Esta es una nueva nota </div>
+            <div class="examen">
+              <span class="reverse mc"><span class="val">mc</span> <span class="text-primary">MC&nbsp;</span></span>
+              <span class="reverse app"><span class="val">app</span> <span class="text-primary">APP&nbsp;</span></span>
+              <span class="reverse av"><span class="val">avoi/avod</span> <span class="text-primary">AV&nbsp;</span></span>
+              <span class="reverse bmc"><span class="val">bmcoi/bmcod</span> <span class="text-primary">BMC&nbsp;</span></span>
+              <span class="reverse pio"><span class="val">piooi/piood</span> <span class="text-primary">PIO&nbsp;</span></span>
+              <span class="reverse obi"><span class="val">obioi/obiod</span> <span class="text-primary">OBI&nbsp;</span></span>
+            </div>
+            <div class="rp">
+              <span class="reverse">
+                <span class="d-flex val"><span class="rp1">nuevo rp; cada x horas</span><span class="rp1">nuevox2</span></span>
+                <span class="text-primary">Rp&nbsp;</span>
+              </span>
+            </div>
+            <div class="lente">
+              <span class="reverse L"><span class="val">lejosoi/lejosod</span> <span class="text-primary">L&nbsp;</span></span>
+              <span class="reverse C"><span class="val">cercaoi/cercaod</span> <span class="text-primary">C&nbsp;</span></span>
+              <span class="reverse lenteObs"><span class="val">Esta es observacion</span> <span class="text-primary">Obs:&nbsp;</span></span>
+            </div>
+            <div class="dx">
+              <span class="reverse"><span class="val">esto es diagnostico</span> <span class="text-primary">Dx&nbsp;</span></span>
+            </div>
+            <div class="cx">
+              <div class="d-flex">
+                <span class="reverse cirugia">
+                  <span class="val">nombreCx</span>
+                  <span class="text-primary">Cx&nbsp;</span>
+                </span>
+                <span class="reverse observacion">
+                  <span class="val font-italic">Esta es obs. de la cirugia</span>
+                </span>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
 
 
   </div>
@@ -52,9 +129,12 @@
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script type="text/javascript">
 
-  $(document).ready(function(){
+  $(document).ready(function() {
 
-
+    for (var i = 0; i < 6; i++) {
+      segment = $('#copiar0').clone().removeAttr('id');
+      $('#consultas').append(segment);
+    }
 
   });
 
