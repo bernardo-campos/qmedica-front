@@ -21,7 +21,7 @@
       margin-right: 1.5em;
     }
     .main.container {
-      margin-top: 5em;
+      margin-top: 1.5em;
     }
 
     /* Consultas realizadas */
@@ -30,18 +30,30 @@
       flex-grow: 0!important;
     }
 
+    .pt-0 {
+      padding-top: 0!important;
+    }
+    .mt-0 {
+      margin-top: 0!important;
+    }
 
 
     /* Botones a la derecha */
+    #botones-derecha {
+      /* display: flex;
+      flex-direction: column; */
+    }
     #opciones {
-      position: fixed;
+      /* position: fixed;
       right: 0;
-      top: 53px;
+      top: 53px; */
+      /* width: 100px; */
     }
     #controles {
-      position: fixed;
+      /* position: fixed;
       right: 0;
-      bottom: 0;
+      bottom: 0; */
+      /* width: 100px; */
     }
 
     /* ========= IMPRESION ========= */
@@ -71,23 +83,40 @@
   <title>Semantic UI example</title>
 </head>
 <body>
-  <div class="ui fixed inverted menu">
-    <div class="ui container">
-      <a href="#" class="header item">
-        <img class="logo" src="https://cdn4.iconfinder.com/data/icons/pretty-office-part-6-reflection-style/256/Status.png">
-        QMedica
-      </a>
-      <a href="#" class="item">Turnos</a>
-      <a href="calendarios.html" class="item">Calendarios</a>
-      <!-- <a href="#" class="item">Pacientes</a> -->
-      <a href="login.html" class="item right floated">Cerrar sesión</a>
-    </div>
-  </div>
 
   <div class="ui main text container">
 
+  <div class="ui vertical segment pt-0" id="tope">
+
+    <!-- Botones de la derecha -->
+    <div class="ui right very close rail">
+      <div id="botones-derecha" class="ui sticky">
+        <div id="opciones" class="ui vertical buttons">
+          <button class="ui button abrirModal" data-modal="#modalNota">Nota</button>
+          <button class="ui button abrirModal" data-modal="#modalEx">Ex</button>
+          <button class="ui button abrirModal" data-modal="#modalRp">Rp</button>
+          <button class="ui button abrirModal" data-modal="#modalL">L</button>
+          <button class="ui button abrirModal" data-modal="#modalDx">Dx</button>
+          <button class="ui button abrirModal" data-modal="#modalCx">Cx</button>
+          <button class="ui button abrirModal" data-modal="#modalAnt">Ant</button>
+          <button class="ui icon button"><i class="print icon"></i></button>
+        </div>
+
+        <br><br><br><br><br><br><br><br>
+
+        <div id="controles" class="ui vertical buttons">
+          <button class="ui button">Inicio</button>
+          <button class="ui icon button"><i class="angle up icon"></i></button>
+          <button class="ui icon button"><i class="angle down icon"></i></button>
+          <button class="ui button">Fin</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- ui right attached rail -->
+
     <!-- Datos Paciente -->
-    <div class="ui raised segment">
+    <div class="ui raised segment sticky mt-0">
       <div>Apellido y nombre - 99 años</div>
       <div id="resumen">
         <div id="antecedentes" class="antecedentes">
@@ -117,90 +146,50 @@
         </div>
         <div class="ui segment">
 
-            <div class="font-italic nota">Esta es una nueva nota </div>
-            <div class="examen">
-              <span class="reverse mc"><span class="val">mc</span> <span class="text-primary">MC&nbsp;</span></span>
-              <span class="reverse app"><span class="val">app</span> <span class="text-primary">APP&nbsp;</span></span>
-              <span class="reverse av"><span class="val">avoi/avod</span> <span class="text-primary">AV&nbsp;</span></span>
-              <span class="reverse bmc"><span class="val">bmcoi/bmcod</span> <span class="text-primary">BMC&nbsp;</span></span>
-              <span class="reverse pio"><span class="val">piooi/piood</span> <span class="text-primary">PIO&nbsp;</span></span>
-              <span class="reverse obi"><span class="val">obioi/obiod</span> <span class="text-primary">OBI&nbsp;</span></span>
-            </div>
-            <div class="rp">
-              <span class="reverse">
-                <span class="d-flex val"><span class="rp1">nuevo rp; cada x horas</span><span class="rp1">nuevox2</span></span>
-                <span class="text-primary">Rp&nbsp;</span>
+          <div class="font-italic nota">Esta es una nueva nota </div>
+          <div class="examen">
+            <span class="reverse mc"><span class="val">mc</span> <span class="text-primary">MC&nbsp;</span></span>
+            <span class="reverse app"><span class="val">app</span> <span class="text-primary">APP&nbsp;</span></span>
+            <span class="reverse av"><span class="val">avoi/avod</span> <span class="text-primary">AV&nbsp;</span></span>
+            <span class="reverse bmc"><span class="val">bmcoi/bmcod</span> <span class="text-primary">BMC&nbsp;</span></span>
+            <span class="reverse pio"><span class="val">piooi/piood</span> <span class="text-primary">PIO&nbsp;</span></span>
+            <span class="reverse obi"><span class="val">obioi/obiod</span> <span class="text-primary">OBI&nbsp;</span></span>
+          </div>
+          <div class="rp">
+            <span class="reverse">
+              <span class="d-flex val"><span class="rp1">nuevo rp; cada x horas</span><span class="rp1">nuevox2</span></span>
+              <span class="text-primary">Rp&nbsp;</span>
+            </span>
+          </div>
+          <div class="lente">
+            <span class="reverse L"><span class="val">lejosoi/lejosod</span> <span class="text-primary">L&nbsp;</span></span>
+            <span class="reverse C"><span class="val">cercaoi/cercaod</span> <span class="text-primary">C&nbsp;</span></span>
+            <span class="reverse lenteObs"><span class="val">Esta es observacion</span> <span class="text-primary">Obs:&nbsp;</span></span>
+          </div>
+          <div class="dx">
+            <span class="reverse"><span class="val">esto es diagnostico</span> <span class="text-primary">Dx&nbsp;</span></span>
+          </div>
+          <div class="cx">
+            <div class="d-flex">
+              <span class="reverse cirugia">
+                <span class="val">nombreCx</span>
+                <span class="text-primary">Cx&nbsp;</span>
+              </span>
+              <span class="reverse observacion">
+                <span class="val font-italic">Esta es obs. de la cirugia</span>
               </span>
             </div>
-            <div class="lente">
-              <span class="reverse L"><span class="val">lejosoi/lejosod</span> <span class="text-primary">L&nbsp;</span></span>
-              <span class="reverse C"><span class="val">cercaoi/cercaod</span> <span class="text-primary">C&nbsp;</span></span>
-              <span class="reverse lenteObs"><span class="val">Esta es observacion</span> <span class="text-primary">Obs:&nbsp;</span></span>
-            </div>
-            <div class="dx">
-              <span class="reverse"><span class="val">esto es diagnostico</span> <span class="text-primary">Dx&nbsp;</span></span>
-            </div>
-            <div class="cx">
-              <div class="d-flex">
-                <span class="reverse cirugia">
-                  <span class="val">nombreCx</span>
-                  <span class="text-primary">Cx&nbsp;</span>
-                </span>
-                <span class="reverse observacion">
-                  <span class="val font-italic">Esta es obs. de la cirugia</span>
-                </span>
-              </div>
-            </div>
+          </div>
 
         </div>
       </div>
     </div>
-
-
+  </div>
 
   </div>
   <!-- .container -->
 
-  <div id="opciones" class="ui vertical buttons">
-    <button class="ui button abrirModal" data-modal="#modalNota">Nota</button>
-    <button class="ui button abrirModal" data-modal="#modalEx">Ex</button>
-    <button class="ui button abrirModal" data-modal="#modalRp">Rp</button>
-    <button class="ui button abrirModal" data-modal="#modalL">L</button>
-    <button class="ui button abrirModal" data-modal="#modalDx">Dx</button>
-    <button class="ui button abrirModal" data-modal="#modalCx">Cx</button>
-    <button class="ui button abrirModal" data-modal="#modalAnt">Ant</button>
-    <button class="ui icon button"><i class="print icon"></i></button>
-    <!-- <button class="ui icon button attached"> -->
-      <!-- <div class="ui top attached menu"> -->
-        <!-- <div class="ui dropdown icon item">
-          <i class="print icon"></i>
-          <div class="menu">
-            <div class="item">
-              <button class="ui button">Pantalla actual</button>
-            </div>
-            <div class="item">
-              <button class="ui button">Rp</button>
-            </div>
-            <div class="item">
-              <button class="ui button">Lentes</button>
-            </div>
-          </div>
-        </div> -->
-      <!-- </div> -->
-    <!-- </button> -->
 
-
-
-  </div>
-
-
-
-  <div id="controles" class="ui vertical buttons">
-    <button class="ui button">Inicio</button>
-    <button class="ui icon button"><i class="angle up icon"></i></button>
-    <button class="ui icon button"><i class="angle down icon"></i></button>
-    <button class="ui button">Fin</button>
-  </div>
 
 
 
@@ -439,6 +428,12 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
+
+    $('.ui.sticky')
+      .sticky({
+        context: '#tope'
+      })
+    ;
 
     $('.ui.dropdown').dropdown();
 
