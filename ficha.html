@@ -20,10 +20,6 @@
     .ui.menu .item img.logo {
       margin-right: 1.5em;
     }
-    .main.container {
-      margin-top: 1.5em;
-    }
-
 
     #checkboxes {
       flex-basis: 160px!important;
@@ -52,24 +48,13 @@
     .mt-0 {
       margin-top: 0!important;
     }
-
-
-    /* Botones a la derecha */
-    #botones-derecha {
-      /* display: flex;
-      flex-direction: column; */
+    .mb-0 {
+      margin-bottom: 0!important;
     }
-    #opciones {
-      /* position: fixed;
-      right: 0;
-      top: 53px; */
-      /* width: 100px; */
-    }
-    #controles {
-      /* position: fixed;
-      right: 0;
-      bottom: 0; */
-      /* width: 100px; */
+
+    button#salir {
+      margin-bottom:1.2em!important;
+      border-radius:4px;
     }
 
     .mycircular.button {
@@ -81,6 +66,10 @@
       border-radius: 50%!important;
       border: 1px solid rgba(34,36,38,.15);
       box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    }
+
+    #controles .mycircular {
+      font-size: 12px;
     }
 
     /* ========= IMPRESION ========= */
@@ -111,7 +100,7 @@
 </head>
 <body>
 
-  <div class="ui main text container">
+  <div class="ui main text container mt-0">
 
   <div class="ui vertical segment pt-0" id="tope">
 
@@ -119,7 +108,7 @@
     <div class="ui right very close rail">
       <div id="botones-derecha" class="ui sticky">
         <div id="opciones" class="ui vertical buttons">
-          <button type="button" class="ui button" style="margin-bottom:1.2em; border-radius:4px;">Salir</button>
+          <button id="salir" type="button" class="ui mycircular button">Salir</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalNota">Nota</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalEx">Ex</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalRp">Rp</button>
@@ -127,16 +116,15 @@
           <button class="ui mycircular button abrirModal" data-modal="#modalDx">Dx</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalCx">Cx</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalAnt">Ant</button>
-          <button class="ui mycircular icon button"><i class="print icon"></i></button>
         </div>
 
         <br><br><br>
 
         <div id="controles" class="ui vertical buttons">
-          <button class="ui button">Inicio</button>
-          <button class="ui icon button"><i class="angle up icon"></i></button>
-          <button class="ui icon button"><i class="angle down icon"></i></button>
-          <button class="ui button">Fin</button>
+          <button class="ui mycircular button">Inicio</button>
+          <button class="ui icon mycircular button"><i class="angle up icon"></i></button>
+          <button class="ui icon mycircular button"><i class="angle down icon"></i></button>
+          <button class="ui mycircular button">Fin</button>
         </div>
       </div>
 
@@ -144,7 +132,7 @@
     <!-- ui right attached rail -->
 
     <!-- Datos Paciente -->
-    <div class="ui horizontal raised sticky segments mt-0">
+    <div class="ui horizontal raised sticky segments mt-0 mb-0">
       <div class="ui segment">
         <div id="paciente">Perez Juan Jose - <a href="#" data-modal="#modalPaciente" class="abrirModal editarPaciente">99 años</a> - IOSEP Nº 123456/00</div>
         <div id="resumen">
@@ -230,7 +218,7 @@
 
 
     <!-- Consultas realizadas -->
-    <div id="consultas" class="ui segments">
+    <div id="consultas" class="ui segments mt-0">
       <div id="copiar0" class="ui horizontal segments consulta">
         <div class="ui segment tiempo">
           <div>22/11/2017</div>
