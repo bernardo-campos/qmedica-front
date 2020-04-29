@@ -72,6 +72,17 @@
       /* width: 100px; */
     }
 
+    .mycircular.button {
+      padding: 0;
+      height: 3em!important;
+      width: 3em!important;
+      border-radius: 50%!important;
+      margin-bottom: 4px!important;
+      border-radius: 50%!important;
+      border: 1px solid rgba(34,36,38,.15);
+      box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    }
+
     /* ========= IMPRESION ========= */
     @media print {
       #opciones,
@@ -108,17 +119,18 @@
     <div class="ui right very close rail">
       <div id="botones-derecha" class="ui sticky">
         <div id="opciones" class="ui vertical buttons">
-          <button class="ui button abrirModal" data-modal="#modalNota">Nota</button>
-          <button class="ui button abrirModal" data-modal="#modalEx">Ex</button>
-          <button class="ui button abrirModal" data-modal="#modalRp">Rp</button>
-          <button class="ui button abrirModal" data-modal="#modalL">L</button>
-          <button class="ui button abrirModal" data-modal="#modalDx">Dx</button>
-          <button class="ui button abrirModal" data-modal="#modalCx">Cx</button>
-          <button class="ui button abrirModal" data-modal="#modalAnt">Ant</button>
-          <button class="ui icon button"><i class="print icon"></i></button>
+          <button type="button" class="ui button" style="margin-bottom:1.2em; border-radius:4px;">Salir</button>
+          <button class="ui mycircular button abrirModal" data-modal="#modalNota">Nota</button>
+          <button class="ui mycircular button abrirModal" data-modal="#modalEx">Ex</button>
+          <button class="ui mycircular button abrirModal" data-modal="#modalRp">Rp</button>
+          <button class="ui mycircular button abrirModal" data-modal="#modalL">L</button>
+          <button class="ui mycircular button abrirModal" data-modal="#modalDx">Dx</button>
+          <button class="ui mycircular button abrirModal" data-modal="#modalCx">Cx</button>
+          <button class="ui mycircular button abrirModal" data-modal="#modalAnt">Ant</button>
+          <button class="ui mycircular icon button"><i class="print icon"></i></button>
         </div>
 
-        <br><br><br><br><br><br><br><br>
+        <br><br><br>
 
         <div id="controles" class="ui vertical buttons">
           <button class="ui button">Inicio</button>
@@ -176,7 +188,6 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="ui button">Salir</button>
         </div>
         <!-- ui form -->
       </div>
@@ -478,7 +489,7 @@
   $(document).ready(function() {
 
     $('.checkbox').checkbox();
-    
+
     $('.ui.sticky')
       .sticky({
         context: '#tope'
