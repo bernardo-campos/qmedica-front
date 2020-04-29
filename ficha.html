@@ -610,6 +610,20 @@
       $(selectorModal).modal('show');
     });
 
+    // Tabbear los inputs al presionar [ENTER]
+    var inputs = $(':input').keypress(function(e){
+        if (e.which == 13) {
+          let tagName = $(this).prop("tagName");
+          if (tagName != 'BUTTON' && tagName != 'TEXTAREA') {
+            e.preventDefault();
+            var nextInput = inputs.get(inputs.index(this) + 1);
+            if (nextInput) {
+              nextInput.focus();
+            }
+          }
+        }
+    });
+
   });
 
 
