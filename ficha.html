@@ -162,13 +162,13 @@
   <!-- .container -->
 
   <div id="opciones" class="ui vertical buttons">
-    <button class="ui button">Nota</button>
-    <button class="ui button">Ex</button>
-    <button class="ui button">Rp</button>
-    <button class="ui button">L</button>
-    <button class="ui button">Dx</button>
-    <button class="ui button">Cx</button>
-    <button class="ui button">Ant</button>
+    <button class="ui button abrirModal" data-modal="#modalNota">Nota</button>
+    <button class="ui button abrirModal" data-modal="#modalEx">Ex</button>
+    <button class="ui button abrirModal" data-modal="#modalRp">Rp</button>
+    <button class="ui button abrirModal" data-modal="#modalL">L</button>
+    <button class="ui button abrirModal" data-modal="#modalDx">Dx</button>
+    <button class="ui button abrirModal" data-modal="#modalCx">Cx</button>
+    <button class="ui button abrirModal" data-modal="#modalAnt">Ant</button>
     <button class="ui icon button"><i class="print icon"></i></button>
     <!-- <button class="ui icon button attached"> -->
       <!-- <div class="ui top attached menu"> -->
@@ -193,11 +193,246 @@
 
   </div>
 
+
+
   <div id="controles" class="ui vertical buttons">
     <button class="ui button">Inicio</button>
     <button class="ui icon button"><i class="angle up icon"></i></button>
     <button class="ui icon button"><i class="angle down icon"></i></button>
     <button class="ui button">Fin</button>
+  </div>
+
+
+
+  <!-- Nota -->
+  <div id="modalNota" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Nota
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <!-- <label>Nota</label> -->
+          <textarea name="nota" rows="4" cols="40"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive deny button">
+        Guardar
+      </div>
+    </div>
+  </div>
+
+  <!-- Examen -->
+  <div id="modalEx" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Examen
+    </div>
+    <div class="content">
+      <form class="ui form">
+
+        <div class="field">
+          <label>MC</label>
+          <input type="text" name="mc" placeholder="MC">
+        </div>
+        <div class="field">
+          <label>APP</label>
+          <input type="text" name="app" placeholder="APP">
+        </div>
+        <div class="field">
+          <label>AV - OI</label>
+          <input type="text" name="avoi" placeholder="AV - OI">
+        </div>
+        <div class="field">
+          <label>AV - OD</label>
+          <input type="text" name="avod" placeholder="AV - OD">
+        </div>
+        <div class="field">
+          <label>BMC - OI</label>
+          <input type="text" name="bmcoi" placeholder="BMC - OI">
+        </div>
+        <div class="field">
+          <label>BMC - OD</label>
+          <input type="text" name="bmcod" placeholder="BMC - OD">
+        </div>
+        <div class="field">
+          <label>PIO - OI</label>
+          <input type="text" name="piooi" placeholder="PIO - OI">
+        </div>
+        <div class="field">
+          <label>PIO - OD</label>
+          <input type="text" name="piood" placeholder="PIO - OD">
+        </div>
+        <div class="field">
+          <label>OBI - OI</label>
+          <input type="text" name="obioi" placeholder="OBI - OI">
+        </div>
+        <div class="field">
+          <label>OBI - OD</label>
+          <input type="text" name="obiod" placeholder="OBI - OD">
+        </div>
+
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive deny button">
+        Guardar
+      </div>
+    </div>
+  </div>
+
+  <!-- Rp -->
+  <div id="modalRp" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Rp
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <input type="text" name="rp[]" placeholder="Rp">
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <button type="button" class="ui positive deny button">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+  <!-- Lentes -->
+  <div id="modalL" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Lentes
+    </div>
+    <div class="content">
+      <form class="ui form">
+
+        <div class="field">
+          <label>Lejos - OI</label>
+          <input type="text" name="lejosoi" placeholder="Lejos - OI">
+        </div>
+        <div class="field">
+          <label>Lejos - OD</label>
+          <input type="text" name="lejosod" placeholder="Lejos - OD">
+        </div>
+        <div class="field">
+          <label>Cerca - OI</label>
+          <input type="text" name="cercaoi" placeholder="Cerca - OI">
+        </div>
+        <div class="field">
+          <label>Cerca - OD</label>
+          <input type="text" name="cercaod" placeholder="Cerca - OD">
+        </div>
+        <div class="field">
+          <label>Observación</label>
+          <textarea name="lenteObservacion" rows="2" cols="80" placeholder="Observación"></textarea>
+        </div>
+
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive deny button">
+        Guardar
+      </div>
+    </div>
+  </div>
+
+  <!-- Diagnostico -->
+  <div id="modalDx" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Diagnóstico
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <!-- <label>modalDx</label> -->
+          <input type="text" name="diagnostico" placeholder="Diagnóstico">
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive deny button">
+        Guardar
+      </div>
+    </div>
+  </div>
+
+  <!-- Cirugía -->
+  <div id="modalCx" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Cirugía
+    </div>
+    <div class="content">
+      <form class="ui form">
+
+        <div class="field">
+          <label>Cirugía</label>
+          <input type="text" name="cirugiaNombre" placeholder="Cirugía">
+        </div>
+        <div class="field">
+          <label>Observación</label>
+          <textarea name="cirugiaObservacion" rows="2" cols="80" placeholder="Observación"></textarea>
+        </div>
+
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive deny button">
+        Guardar
+      </div>
+    </div>
+  </div>
+
+  <!-- Antecedentes -->
+  <div id="modalAnt" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Antecedentes
+    </div>
+    <div class="content">
+      <form class="ui form">
+
+        <div class="field">
+          <!-- <label>modalAnt</label> -->
+          <input type="text" name="antecedentes" placeholder="Antecedentes">
+        </div>
+
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive deny button">
+        Guardar
+      </div>
+    </div>
   </div>
 
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
@@ -207,13 +442,58 @@
 
     $('.ui.dropdown').dropdown();
 
+    $('.ui.modal')
+      .modal({
+        centered: false
+      })
+    ;
+
     for (var i = 0; i < 6; i++) {
       segment = $('#copiar0').clone().removeAttr('id');
       $('#consultas').append(segment);
     }
 
+    $('.abrirModal').click(function(){
+      selectorModal = $(this).attr('data-modal');
+      $(selectorModal).modal('show');
+    });
+
   });
 
+
+  // Agregar linea rp (En modal-rp)
+  $(document).on('keypress', 'input[name="rp[]"]', function(e){
+    let field = `<div class="field">
+      <input type="text" name="rp[]" placeholder="Rp">
+    </div>`;
+    // Si presiona [ENTER]
+    if (e.which == 13) {
+      e.preventDefault();
+      // si el input esta vacio => agregar otro
+      if ($(this).val() != "") {
+        if ($('#modalRp form.ui.form input').last().val() != "") {
+          $('#modalRp form.ui.form').append(field);
+          $('#modalRp form.ui.form input').last().focus();
+          //   .autoComplete({
+          //   minChars: 2,
+          //   source: function(term, suggest){
+          //       term = term.toLowerCase();
+          //       var choices = rps;
+          //       var matches = [];
+          //       for (i=0; i<choices.length; i++)
+          //         if (choices[i].toLowerCase().startsWith(term))
+          //           matches.push(choices[i]);
+          //       suggest(matches);
+          //   }
+          // }).focus();
+        }
+        $(this).next('input').focus();
+      }
+      else {
+        $('#modalRp .positive').focus();
+      }
+    }
+  });
 
 
 </script>
