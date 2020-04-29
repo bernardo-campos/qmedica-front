@@ -24,7 +24,23 @@
       margin-top: 1.5em;
     }
 
+
+    #checkboxes {
+      flex-basis: 160px!important;
+      flex-grow: 0!important;
+      border-left: 0;
+    }
+    #paciente {
+      font-weight: bold;
+      margin-bottom: .5em;
+    }
+
     /* Consultas realizadas */
+    .consulta .segment{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
     .tiempo {
       flex-basis: 110px!important;
       flex-grow: 0!important;
@@ -116,26 +132,58 @@
     <!-- ui right attached rail -->
 
     <!-- Datos Paciente -->
-    <div class="ui raised segment sticky mt-0">
-      <div>Apellido y nombre - 99 años</div>
-      <div id="resumen">
-        <div id="antecedentes" class="antecedentes">
-          <span class="text-primary">Antecedentes:&nbsp;</span><span class="val">Aquí van los antecedentes del paciente...</span>
-        </div>
-        <div id="diagnosticos">
-          <span class="text-primary">Diagnósticos:&nbsp;</span><span class="val">Aquí va el último diagnóstico realizado</span>
-        </div>
-        <div id="ultimos-lentes">
-          <span class="text-primary">Últ. lentes:&nbsp;</span>
-          <span class="reverse L"><span class="val"></span> <span class="text-primary">L&nbsp;</span></span>
-          <span class="reverse C"><span class="val">+1.75/+1.75</span> <span class="text-primary">C&nbsp;</span></span>
-          <span class="reverse lenteObs"><span class="val"></span> <span class="text-primary">Obs:&nbsp;</span></span>
-        </div>
-        <div id="cirugias">
-          <span class="text-primary">Cirugias:&nbsp;</span><span class="val"></span>
+    <div class="ui horizontal raised sticky segments mt-0">
+      <div class="ui segment">
+        <div id="paciente">Perez Juan Jose - 99 años - IOSEP Nº 123456/00</div>
+        <div id="resumen">
+          <div id="antecedentes" class="antecedentes">
+            <span class="text-primary">Antecedentes:&nbsp;</span><span class="val">Aquí van los antecedentes del paciente...</span>
+          </div>
+          <div id="diagnosticos">
+            <span class="text-primary">Diagnósticos:&nbsp;</span><span class="val">Aquí va el último diagnóstico realizado</span>
+          </div>
+          <div id="ultimos-lentes">
+            <span class="text-primary">Últ. lentes:&nbsp;</span>
+            <span class="reverse L"><span class="val"></span> <span class="text-primary">L&nbsp;</span></span>
+            <span class="reverse C"><span class="val">+1.75/+1.75</span> <span class="text-primary">C&nbsp;</span></span>
+            <span class="reverse lenteObs"><span class="val"></span> <span class="text-primary">Obs:&nbsp;</span></span>
+          </div>
+          <div id="cirugias">
+            <span class="text-primary">Cirugias:&nbsp;</span><span class="val"></span>
+          </div>
         </div>
       </div>
+      <div class="ui segment" id="checkboxes">
+        <div class="ui form">
+          <div class="grouped fields">
+            <!-- <label>¿Con qué frecuencia utilizas los Checkboxs?</label> -->
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="example2" checked="checked">
+                <label>En sala</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="example2">
+                <label>En consultorio</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="example2">
+                <label>Atendido</label>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="ui button">Salir</button>
+        </div>
+        <!-- ui form -->
+      </div>
+      <!-- ui segment -->
     </div>
+    <!-- ui horizontal raised sticky segments -->
+
 
     <!-- Consultas realizadas -->
     <div id="consultas" class="ui segments">
@@ -429,6 +477,8 @@
 
   $(document).ready(function() {
 
+    $('.checkbox').checkbox();
+    
     $('.ui.sticky')
       .sticky({
         context: '#tope'
