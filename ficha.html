@@ -146,7 +146,7 @@
     <!-- Datos Paciente -->
     <div class="ui horizontal raised sticky segments mt-0">
       <div class="ui segment">
-        <div id="paciente">Perez Juan Jose - 99 años - IOSEP Nº 123456/00</div>
+        <div id="paciente">Perez Juan Jose - <a href="#" data-modal="#modalPaciente" class="abrirModal editarPaciente">99 años</a> - IOSEP Nº 123456/00</div>
         <div id="resumen">
           <div id="antecedentes" class="antecedentes">
             <span class="text-primary">Antecedentes:&nbsp;</span><span class="val">Aquí van los antecedentes del paciente...</span>
@@ -249,8 +249,70 @@
   <!-- .container -->
 
 
-
-
+  <!-- Paciente -->
+  <div id="modalPaciente" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Paciente
+    </div>
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+          <label>DNI</label>
+          <input type="text" name="" value="" placeholder="DNI">
+        </div>
+        <div class="field">
+          <label>Apellido</label>
+          <input type="text" name="" value="" placeholder="Apellido">
+        </div>
+        <div class="field">
+          <label>Nombres</label>
+          <input type="text" name="" value="" placeholder="Nombres">
+        </div>
+        <div class="field">
+          <label>Domicilio</label>
+          <input type="text" name="" value="" placeholder="Domicilio">
+        </div>
+        <div class="field">
+          <label>Localidad</label>
+          <input type="text" name="" value="" placeholder="Localidad">
+        </div>
+        <div class="field">
+          <label>Teléfono</label>
+          <input type="text" name="" value="" placeholder="Teléfono">
+        </div>
+        <div class="field">
+          <label>Correo</label>
+          <input type="text" name="" value="" placeholder="Correo">
+        </div>
+        <div class="three fields">
+          <div class="field">
+            <label>Fecha Nacimiento</label>
+            <input type="date" value="">
+          </div>
+          <div class="field">
+            <label>Edad</label>
+            <input type="number" name="" value="" placeholder="Edad">
+          </div>
+          <div class="field">
+            <label>Sexo</label>
+            <select class="ui dropdown">
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        Cancelar
+      </div>
+      <div class="ui positive deny button">
+        Guardar
+      </div>
+    </div>
+  </div>
 
   <!-- Nota -->
   <div id="modalNota" class="ui modal">
@@ -509,7 +571,8 @@
       $('#consultas').append(segment);
     }
 
-    $('.abrirModal').click(function(){
+    $('.abrirModal').click(function(event){
+      event.preventDefault();
       selectorModal = $(this).attr('data-modal');
       $(selectorModal).modal('show');
     });
