@@ -20,6 +20,9 @@
     .ui.menu .item img.logo {
       margin-right: 1.5em;
     }
+    .main.container {
+      margin-top: .8em;
+    }
 
     #checkboxes {
       flex-basis: 160px!important;
@@ -53,7 +56,8 @@
     }
 
     button#salir {
-      margin-bottom:1.2em!important;
+      margin-top: 3em!important;
+      margin-bottom:7em!important;
       border-radius:4px;
     }
 
@@ -100,7 +104,7 @@
 </head>
 <body>
 
-  <div class="ui main text container mt-0">
+  <div class="ui main text container">
 
   <div class="ui vertical segment pt-0" id="tope">
 
@@ -436,11 +440,30 @@
       Rp
     </div>
     <div class="content">
-      <form class="ui form">
+
+      <div id="rps" class="ui form" style="margin-bottom:1em;">
         <div class="field">
           <input type="text" name="rp[]" placeholder="Rp">
         </div>
-      </form>
+      </div>
+
+      <div class="ui form">
+        <div class="fields">
+          <div class="field" style="margin-left:auto; width:auto;">
+            <div class="ui checkbox">
+              <input id="imprimirRp" type="checkbox">
+              <label>Imprimir RP</label>
+            </div>
+          </div>
+          <div class="field" style="margin-left:0; width:auto;">
+            <div class="ui checkbox">
+              <input type="checkbox">
+              <label>Imprimir indicaciones</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="actions">
       <div class="ui black deny button">
@@ -484,6 +507,14 @@
         <div class="field">
           <label>Observación</label>
           <textarea name="lenteObservacion" rows="2" cols="80" placeholder="Observación"></textarea>
+        </div>
+        <div class="fields">
+          <div class="field" style="margin-left:auto; width:auto;">
+            <div class="ui checkbox">
+              <input type="checkbox">
+              <label>Imprimir</label>
+            </div>
+          </div>
         </div>
 
       </form>
@@ -633,30 +664,21 @@
       <input type="text" name="rp[]" placeholder="Rp">
     </div>`;
     // Si presiona [ENTER]
+    // console.log($(this));
     if (e.which == 13) {
       e.preventDefault();
-      // si el input esta vacio => agregar otro
-      if ($(this).val() != "") {
-        if ($('#modalRp form.ui.form input').last().val() != "") {
-          $('#modalRp form.ui.form').append(field);
-          $('#modalRp form.ui.form input').last().focus();
-          //   .autoComplete({
-          //   minChars: 2,
-          //   source: function(term, suggest){
-          //       term = term.toLowerCase();
-          //       var choices = rps;
-          //       var matches = [];
-          //       for (i=0; i<choices.length; i++)
-          //         if (choices[i].toLowerCase().startsWith(term))
-          //           matches.push(choices[i]);
-          //       suggest(matches);
-          //   }
-          // }).focus();
-        }
-        $(this).next('input').focus();
+      // Si el input no es el ultimo, ir al siguiente
+      if ($(this)[0] != $('#rps input').last()[0]) {
+        $(this).parents('.field').next().find('input[name="rp[]"]').focus();
       }
       else {
-        $('#modalRp .positive').focus();
+        // si el input no esta vacio => agregar otro y focusearlo
+        if ($(this).val() != "") {
+          $('#rps').append(field);
+          $('#rps input').last().focus();
+        } else {
+          $('#imprimirRp').focus();
+        }
       }
     }
   });
