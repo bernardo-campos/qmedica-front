@@ -13,106 +13,142 @@
     crossorigin="anonymous"></script>
 
 
-  <style type="text/css">
-    body {
-      background-color: #FFFFFF;
-    }
-    .ui.menu .item img.logo {
-      margin-right: 1.5em;
-    }
-    .main.container {
-      margin-top: .8em;
-    }
-
-    #checkboxes {
-      flex-basis: 160px!important;
-      flex-grow: 0!important;
-      border-left: 0;
-    }
-    #paciente {
-      font-weight: bold;
-      margin-bottom: .5em;
-    }
-
-    /* Consultas realizadas */
-    .consulta .segment{
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .tiempo {
-      flex-basis: 110px!important;
-      flex-grow: 0!important;
-    }
-
-    .pt-0 {
-      padding-top: 0!important;
-    }
-    .mt-0 {
-      margin-top: 0!important;
-    }
-    .mb-0 {
-      margin-bottom: 0!important;
-    }
-
-    button#salir {
-      margin-top: 3em!important;
-      margin-bottom:7em!important;
-      border-radius:4px;
-    }
-
-    .mycircular.button {
-      padding: 0;
-      height: 3em!important;
-      width: 3em!important;
-      border-radius: 50%!important;
-      margin-bottom: 4px!important;
-      border-radius: 50%!important;
-      border: 1px solid rgba(34,36,38,.15);
-      box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
-    }
-
-    #controles .mycircular {
-      font-size: 12px;
-    }
-
-    /* ========= IMPRESION ========= */
-    @media print {
-      #opciones,
-      #controles,
-      .modal button.close,
-      .no-print {
+    <style type="text/css">
+      #navegacion {
         display: none;
       }
+      .main.container {
+        margin-top: .8em;
+      }
+      .very.close.rail {
+        width: 100px!important;
+        height: 100vh!important;
+      }
+      .very.close.rail.left > * {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15em;
+      }
+
+      #checkboxes {
+        flex-basis: 160px!important;
+        flex-grow: 0!important;
+        border-left: 0;
+      }
+      #paciente {
+        font-weight: bold;
+        margin-bottom: .5em;
+      }
+
+      /* Consultas realizadas */
+      .consulta .segment{
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .tiempo {
+        flex-basis: 110px!important;
+        flex-grow: 0!important;
+      }
+      .tiempo + .ui.segment {
+        border-left: 0!important;
+      }
+
+      .pt-0 {
+        padding-top: 0!important;
+      }
+      .mt-0 {
+        margin-top: 0!important;
+      }
+      .mb-0 {
+        margin-bottom: 0!important;
+      }
+
+      button#salir {
+        margin-top: 3em!important;
+        margin-bottom:8em!important;
+        border-radius:4px;
+      }
+
+      .mycircular.button {
+        padding: 0;
+        height: 3em!important;
+        width: 3em!important;
+        border-radius: 50%!important;
+        margin-bottom: 4px!important;
+        border-radius: 50%!important;
+        border: 1px solid rgba(34,36,38,.15);
+        box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+      }
+
+      #controles .mycircular {
+        font-size: 12px;
+      }
+
+      /* =========  Rpoftas  ========= */
+      /* .rp1:hover {
+        background-color: moccasin;
+      } */
+      span.reverse {
+        display: inline-flex;
+        flex-direction: row-reverse;
+      }
+      /* Si hay muchos rps mostrar en más de una linea: */
+      li.rp > span.reverse > span.val {
+        flex-wrap: wrap;
+      }
+      span.reverse:has( > span.val:empty ) {
+        display: none;
+      }
+      .negrita {
+        font-weight: 600;
+      }
+      span.val:empty + span.negrita,
+      span.val:empty {
+        display: none;
+      }
+
+      .diagno1:not(:nth-child(2))::before,
+      .rp1::before,
+      .cx .observacion .val:not(:empty)::before {
+        content: '\2002\2013\2002';
+      }
+
+      /* ========= IMPRESION ========= */
+      @media print {
+        #opciones,
+        #controles,
+        .modal button.close,
+        .no-print {
+          display: none;
+        }
       .printThis {
-          background-color: white;
-          height: 100%;
-          width: 100%;
-          position: fixed;
-          top: 0;
-          left: 0;
-          margin: 0;
-          padding: 15px;
-          font-size: 14px;
-          line-height: 18px;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
       }
     }
-
     </style>
 
   <title>Semantic UI example</title>
 </head>
 <body>
 
-  <div class="ui main text container">
+  <div class="ui main container">
 
   <div class="ui vertical segment pt-0" id="tope">
 
-    <!-- Botones de la derecha -->
-    <div class="ui right very close rail">
-      <div id="botones-derecha" class="ui sticky">
+    <!-- Botones de la izquierda -->
+    <div class="ui left very close rail">
+      <div class="ui sticky">
         <div id="opciones" class="ui vertical buttons">
-          <button id="salir" type="button" class="ui mycircular button">Salir</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalNota">Nota</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalEx">Ex</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalRp">Rp</button>
@@ -121,9 +157,14 @@
           <button class="ui mycircular button abrirModal" data-modal="#modalCx">Cx</button>
           <button class="ui mycircular button abrirModal" data-modal="#modalAnt">Ant</button>
         </div>
+      </div>
+    </div>
 
-        <br><br><br>
-
+    <!-- Botones de la derecha -->
+    <div class="ui right very close rail">
+      <div id="botones-derecha" class="ui sticky">
+        <button id="salir" type="button" class="ui mycircular button">Salir</button>
+        <br>
         <div id="controles" class="ui vertical buttons">
           <button class="ui mycircular button">Inicio</button>
           <button class="ui icon mycircular button"><i class="angle up icon"></i></button>
